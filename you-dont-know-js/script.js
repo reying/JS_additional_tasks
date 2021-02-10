@@ -1,8 +1,10 @@
 'use strict';
 
-const ad = document.querySelector('.adv');
-const collectionBooks = document.querySelectorAll('.book');
-const bgBody = document.querySelector('body');
+const ad = document.querySelector('.adv'),
+    collectionBooks = document.querySelectorAll('.book'),
+    bgBody = document.querySelector('body');
+
+let linkHeadBook3 = collectionBooks[4].querySelector('a');
 
 
 console.log(collectionBooks);
@@ -15,7 +17,8 @@ collectionBooks[5].after(collectionBooks[2]);
 
 bgBody.style.backgroundImage = 'url(./image/you-dont-know-js.jpg)';
 
-console.log();
+linkHeadBook3.textContent = 'Книга 3. this и Прототипы Объектов';
 
 
-// background-image: url(./image/you-dont-know-js.jpg);
+
+console.log(collectionBooks[4].h2.a);
