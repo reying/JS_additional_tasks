@@ -5,7 +5,8 @@ const ad = document.querySelector('.adv'),
     bgBody = document.querySelector('body'),
     linkHeadBook3 = collectionBooks[4].querySelector('a'),
     chaptersBook2 = collectionBooks[0].querySelectorAll('li'),
-    chaptersBook5 = collectionBooks[5].querySelectorAll('li');
+    chaptersBook5 = collectionBooks[5].querySelectorAll('li'),
+    chaptersBook6 = collectionBooks[2].querySelectorAll('li');
 
 
 ad.remove(); // Удаление рекламы
@@ -31,6 +32,7 @@ chaptersBook5[1].after(chaptersBook5[9]);
 chaptersBook5[6].before(chaptersBook5[2]);
 chaptersBook5[7].after(chaptersBook5[5]);
 
-
-
-console.log(chaptersBook5);
+// Добавление новой главы в книгу 6
+const newChapterBook6 = document.createElement('li');
+newChapterBook6.textContent = 'Глава 8: За пределами ES6';
+chaptersBook6[8].after(newChapterBook6);
