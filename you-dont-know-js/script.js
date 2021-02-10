@@ -2,23 +2,35 @@
 
 const ad = document.querySelector('.adv'),
     collectionBooks = document.querySelectorAll('.book'),
-    bgBody = document.querySelector('body');
+    bgBody = document.querySelector('body'),
+    linkHeadBook3 = collectionBooks[4].querySelector('a'),
+    chaptersBook2 = collectionBooks[0].querySelectorAll('li'),
+    chaptersBook5 = collectionBooks[5].querySelectorAll('li');
 
-let linkHeadBook3 = collectionBooks[4].querySelector('a');
 
+ad.remove(); // Удаление рекламы
 
-console.log(collectionBooks);
-
-ad.remove();
-
+// Упорядочивание книг
 collectionBooks[0].before(collectionBooks[1]);
 collectionBooks[3].before(collectionBooks[4]);
 collectionBooks[5].after(collectionBooks[2]);
 
+// Измененение фона страницы
 bgBody.style.backgroundImage = 'url(./image/you-dont-know-js.jpg)';
 
+// Исправление опечатки в заголовке книги 3
 linkHeadBook3.textContent = 'Книга 3. this и Прототипы Объектов';
 
+// Упорядочивание глав книги 2
+chaptersBook2[9].after(chaptersBook2[2]);
+chaptersBook2[3].after(chaptersBook2[6]);
+chaptersBook2[4].before(chaptersBook2[8]);
+
+// Упорядочивание глав книги 5
+chaptersBook5[1].after(chaptersBook5[9]);
+chaptersBook5[6].before(chaptersBook5[2]);
+chaptersBook5[7].after(chaptersBook5[5]);
 
 
-console.log(collectionBooks[4].h2.a);
+
+console.log(chaptersBook5);
