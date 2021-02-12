@@ -7,6 +7,21 @@ const todoControl = document.querySelector('.todo-control'),
 
 const todoData = [];
 
+const getDataToStorage = function() {
+    localStorage.toDoList = JSON.stringify(todoData);
+};
+const getDataFromStorage = function() {
+    if (localStorage.toDoList) {
+        JSON.parse(localStorage.toDoList).forEach(function(item) {
+            todoData.push(item);
+        });
+        if (todoData.length === 0) { alert('Список задач пуст. Спланируйте новые задачи!'); }
+    } else {
+        alert('Предыдущих задач не обнаружено!' +
+            ' Откройте страницу в браузере, в котором они были поставлены или спланируйте новые задачи!');
+    }
+};
+
 const render = function() {
     todoList.textContent = '';
     todoCompleted.textContent = '';
@@ -27,9 +42,18 @@ const render = function() {
         }
 
         const btnTodoComplete = li.querySelector('.todo-complete');
+        const btnTodoRemove = li.querySelector('.todo-remove');
 
         btnTodoComplete.addEventListener('click', function() {
             item.completed = !item.completed;
+            getDataToStorage();
+            render();
+        });
+
+        btnTodoRemove.addEventListener('click', function() {
+            let itemId = todoData.indexOf(item);
+            todoData.splice(itemId, 1);
+            getDataToStorage();
             render();
         });
     });
@@ -37,6 +61,8 @@ const render = function() {
 
 todoControl.addEventListener('submit', function(event) {
     event.preventDefault();
+    headerInput.value = headerInput.value.trim();
+    if (headerInput.value === '') { return; }
 
     const newTodo = {
         value: headerInput.value,
@@ -44,8 +70,11 @@ todoControl.addEventListener('submit', function(event) {
     };
 
     todoData.push(newTodo);
+    getDataToStorage();
+    headerInput.value = '';
 
     render();
 });
 
+getDataFromStorage();
 render();
