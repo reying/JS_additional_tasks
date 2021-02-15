@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomColor</title>
+    <style>
+        body {
+            background-color: #000000;
+        }
+        
+        .wrapper {
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            margin-top: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #color {
+            color: #fff;
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 40px;
+        }
+        
+        #change {
+            background-color: #fff;
+            color: #000000;
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 id="color">#000000</h1>
+        <button id="change" type="button">New Color</button>
+    </div>
+
+    <script>
+        'use strict';
+
+        let body = document.querySelector('body'),
+            labelColor = document.querySelector('#color'),
+            btnChange = document.querySelector('#change');
+
+        btnChange.addEventListener('click', function() {
+            let symbols = '0123456789abcdef',
+                color = '#';
+
+            while (color.length < 7) {
+                color += symbols[Math.floor(Math.random() * symbols.length)];
+            }
+            body.style.backgroundColor = color;
+            labelColor.textContent = color;
+            btnChange.style.color = color;
+        });
+    </script>
+</body>
+
+</html>
