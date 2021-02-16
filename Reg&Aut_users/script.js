@@ -53,10 +53,10 @@ const outputedUsersList = function() {
                 '</div>';
             outputUsers.append(li);
 
-            const btnRemoveUser = document.querySelector('.remove');
+            let itemId = userData.indexOf(item);
+            let btnRemoveUser = document.querySelectorAll('.remove')[itemId];
 
             btnRemoveUser.addEventListener('click', function() {
-                let itemId = userData.indexOf(item);
                 userData.splice(itemId, 1);
                 setUserDateToStoreg();
                 outputedUsersList();
@@ -72,6 +72,10 @@ const savedUserData = function() {
     passwordSignup = document.querySelector('#passwordsignup');
     passwordSignupConfirm = document.querySelector('#passwordsignup_confirm');
 
+    if (userNameSignup.value === '') {
+        alert('Имя пользователя не указано!');
+        return;
+    }
     if (passwordSignup.value === '' || passwordSignupConfirm.value === '') {
         alert('Поле с паролем не заполнено!');
         return;
@@ -145,13 +149,9 @@ const logined = function() {
 };
 
 
-
-
 btnSignin.addEventListener('click', savedUserData);
 btnLogin.addEventListener('click', logined);
 
 
 getUserDateFromStoreg();
 outputedUsersList();
-
-console.log(nowDate.toLocaleDateString() + ', ' + nowDate.toLocaleTimeString());
