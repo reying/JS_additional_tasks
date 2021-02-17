@@ -11,14 +11,16 @@ const DomElement = function(selector, options) {
 };
 
 DomElement.prototype.createElem = function() {
-    let element = document.createElement('div');
+    let element;
 
     if (this.selector[0] === '.') {
         let str = this.selector;
+        element = document.createElement('div');
         element.className = str.replace('.', '');
     }
     if (this.selector[0] === '#') {
         let str = this.selector;
+        element = document.createElement('p');
         element.id = str.replace('#', '');
     }
 
