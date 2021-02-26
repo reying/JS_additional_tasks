@@ -11,7 +11,9 @@ class Todo {
     }
 
     addToStorage() {
-        localStorage.setItem('toDoList', JSON.stringify([...this.todoData]));
+        if (this.todoData.size !== 0) {
+            localStorage.setItem('toDoList', JSON.stringify([...this.todoData]));
+        } else { localStorage.removeItem('toDoList'); }
     }
 
     render() {
@@ -48,6 +50,7 @@ class Todo {
             const newTodo = {
                 value: this.input.value,
                 completed: false,
+                opacity: 1,
                 key: this.generateKey()
             };
             this.todoData.set(newTodo.key, newTodo);
@@ -61,6 +64,22 @@ class Todo {
 
     generateKey() {
         return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+
+    hideItem(li) {
+        let count = 1,
+            idInterval;
+
+        const ascent = () => {
+            count -= 0.01;
+            if (count !== 0) {
+                li.style.opacity = count;
+            } else {
+                console.log(count);
+                clearInterval(idInterval);
+            }
+        };
+        idInterval = setInterval(ascent);
     }
 
     editItem(event) {
@@ -91,19 +110,28 @@ class Todo {
                     this.todoData.delete(key);
                 }
             });
-            this.render();
+
+            this.hideItem(target.closest('.todo-item'));
+            setTimeout(() => { this.render(); }, 550);
         }
     }
 
     completedItem(event) {
         let target = event.target;
         if (target.matches('.todo-complete')) {
+
+            const li = target.closest('.todo-item');
+            this.hideItem(li);
+
             this.todoData.forEach((item, key) => {
-                if (key === target.closest('.todo-item').key) {
+                if (key === li.key) {
                     item.completed = (item.completed) ? false : true;
                 }
             });
-            this.render();
+
+            setTimeout(() => {
+                this.render();
+            }, 550);
         }
     }
 
