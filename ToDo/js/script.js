@@ -50,7 +50,6 @@ class Todo {
             const newTodo = {
                 value: this.input.value,
                 completed: false,
-                opacity: 1,
                 key: this.generateKey()
             };
             this.todoData.set(newTodo.key, newTodo);
@@ -89,15 +88,17 @@ class Todo {
             const li = target.closest('.todo-item');
             li.contentEditable = true;
 
-            li.addEventListener('blur', () => {
+            const saveValueItem = () => {
                 this.todoData.forEach((item, key) => {
                     if (key === target.closest('.todo-item').key) {
                         item.value = li.childNodes[1].textContent;
                     }
                 });
-                li.contentEditable = true;
                 this.render();
-            });
+                li.removeEventListener('blur', saveValueItem);
+            };
+
+            li.addEventListener('blur', saveValueItem);
         }
     }
 
