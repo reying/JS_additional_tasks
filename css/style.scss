@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  input:focus {
+    outline: none;
+  }
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    .main {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        background: #00416A;
+        background: -webkit-linear-gradient(to bottom, #00416A, #E4E5E6);
+        background: linear-gradient(to bottom, #00416A, #E4E5E6);
+        .input-cities {
+            width: 430px;
+            height: 50px;
+            margin: 200px auto 0 auto;
+            letter-spacing: 0.6px;
+            position: relative;
+            #select-cities {
+                border: 1px solid #ccc;
+                padding: 7px 14px;
+                transition: 0.4s;
+                background: transparent;
+                width: 100%;
+                height: 100%;
+                font-size: 18px;
+                color: #00416A;
+            }
+            #select-cities:focus~.label {
+                top: -25px;
+                left: 0;
+                color: #00416A;
+            }
+            .close-button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 50px;
+                height: 50px;
+                z-index: 50;
+                display: none;
+                cursor: pointer;
+            }
+            .close-button:after,
+            .close-button:before {
+                content: "";
+                position: absolute;
+                top: 23px;
+                left: 16px;
+                width: 20px;
+                height: 3px;
+                background-color: #00416A;
+            }
+            .close-button:after {
+                transform: rotate(45deg);
+            }
+            .close-button:before {
+                transform: rotate(-45deg);
+            }
+            label {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                color: #fff;
+            }
+        }    
+    }
+}
+.button {
+    width: 100%;
+    max-width: 290px;
+    height: 55px;
+    background: #00416A;
+    display: block;
+    text-align: center;
+    padding-top: 18px;
+    color: #E4E5E6;
+    text-decoration: none;
+    border-radius: 7px;
+    margin: 15px auto;
+    cursor: pointer;
+    &:hover{
+        background: lighten(#00416A, 10%);
+        transition: all .5s ease;
+    }
+}
+.dropdown{
+    width: 100%;
+    background: #fff;
+    max-height: 300px;
+    overflow: auto;
+    &-lists{
+        width: 100%;
+        display: flex;
+        &__list{
+            width: 100%;
+            &--select{
+                display: none;
+            }
+            &--autocomplete{
+                display: none;
+            }
+        }
+        &__total-line, &__line{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        &__country{
+           font-weight: 700;
+           font-size: 18px; 
+        }
+        &__count{
+            font-style: italic;
+        }
+        &__city{
+            &--ip{
+                color: orange;
+            }
+        }
+        &__countryBlock{
+            margin: 10px 0;
+        }
+    }
+}
+#select-cities~.focus-border:before,
+#select-cities~.focus-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00416A;
+  transition: 0.3s;
+}
+
+#select-cities~.focus-border:after {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+}
+
+#select-cities~.focus-border i:before,
+#select-cities~.focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: #00416A;
+  transition: 0.4s;
+}
+
+#select-cities~.focus-border i:after {
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+}
+
+#select-cities:focus~.focus-border:before,
+#select-cities:focus~.focus-border:after {
+  width: 100%;
+  transition: 0.3s;
+}
+
+#select-cities:focus~.focus-border i:before,
+#select-cities:focus~.focus-border i:after {
+  height: 100%;
+  transition: 0.4s;
+}
