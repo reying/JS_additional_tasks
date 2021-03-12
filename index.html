@@ -2,164 +2,42 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
 </head>
 
 <body>
-  <section class="main">
-    <div class="input-cities">
-      <input id="select-cities" type="text" placeholder="">
-      <div class="close-button"></div>
-      <label class="label" for="select-cities">Страна или город</label>
-      <span class="focus-border"><i></i></span>
-      <div class="dropdown">
-        <div class="dropdown-lists">
-          <div class="dropdown-lists__list dropdown-lists__list--default">
-            <div class="dropdown-lists__col">
-              <!-- <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__total-line">
-                  <div class="dropdown-lists__country">Россия</div>
-                  <div class="dropdown-lists__count">144500000</div>
+    <section class="main">
+        <div class="input-cities">
+            <input id="select-cities" type="text" placeholder="">
+            <div class="close-button"></div>
+            <label class="label" for="select-cities">Страна или город</label>
+            <span class="focus-border"><i></i></span>
+            <div class="dropdown">
+                <div class="dropdown-lists">
+                    <div class="dropdown-lists__list dropdown-lists__list--default">
+                        <div class="dropdown-lists__col">
+                        </div>
+                    </div>
+                    <div class="dropdown-lists__list dropdown-lists__list--select">
+                        <div class="dropdown-lists__col">
+                        </div>
+                    </div>
+                    <div class="dropdown-lists__list dropdown-lists__list--autocomplete">
+                        <div class="dropdown-lists__col">
+                        </div>
+                    </div>
                 </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city dropdown-lists__city--ip">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div>
-              <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__total-line">
-                  <div class="dropdown-lists__country">Россия</div>
-                  <div class="dropdown-lists__count">144500000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div>
-              <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__total-line">
-                  <div class="dropdown-lists__country">Россия</div>
-                  <div class="dropdown-lists__count">144500000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div>
-              <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__total-line">
-                  <div class="dropdown-lists__country">Россия</div>
-                  <div class="dropdown-lists__count">144500000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div>
-              <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__total-line">
-                  <div class="dropdown-lists__country">Россия</div>
-                  <div class="dropdown-lists__count">144500000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div> -->
             </div>
-          </div>
-          <div class="dropdown-lists__list dropdown-lists__list--select">
-            <div class="dropdown-lists__col">
-              <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__total-line">
-                  <div class="dropdown-lists__country">Россия</div>
-                  <div class="dropdown-lists__count">144500000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="dropdown-lists__list dropdown-lists__list--autocomplete">
-            <div class="dropdown-lists__col">
-              <div class="dropdown-lists__countryBlock">
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-                <div class="dropdown-lists__line">
-                  <div class="dropdown-lists__city">Москва</div>
-                  <div class="dropdown-lists__count">12615000</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <a class="button" href="#">Перейти</a>
         </div>
-      </div>
-      <a class="button" href="#">Перейти</a>
-    </div>
-  </section>
+    </section>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
