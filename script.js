@@ -113,12 +113,19 @@ window.addEventListener('DOMContentLoaded', () => {
                     });
 
                     listDefault.style.display = 'block';
-                    // listDefault.style.left = `0px`;
-                    // listDefault.style.transform = `translate(0,0)`;
                 }
+
+                const sliding = (elem) => {
+                    elem.style.display = 'block';
+                    listDefault.parentNode.classList.toggle('slide-left');
+                    listDefault.parentNode.classList.toggle('slide-right');
+                };
 
                 if (target.closest('.dropdown-lists__total-line')) {
                     selectCities.value = '';
+                    listSelect.parentNode.style.width = '860px';
+                    listSelect.parentNode.classList.add('slide');
+
                     if (listSelect.style.display === 'none') {
                         colSelect.textContent = '';
 
@@ -126,58 +133,10 @@ window.addEventListener('DOMContentLoaded', () => {
                         const objData = data.RU.filter(item => item.country === countryValue);
                         addCountryBlock(objData[0].cities, colSelect, objData[0].country, objData[0].count);
 
-                        const slidingLeft = () => {
-                            let count = 0;
-                            const max = 400;
-                            // listSelect.style.transform = `translate(0,0)`;
-                            listSelect.style.display = 'block';
-                            // listSelect.parentNode.style.position = 'relative';
-                            listSelect.parentNode.classList.add('slide');
-                            listSelect.parentNode.classList.remove('slide-right');
-                            listSelect.parentNode.classList.add('slide-left');
-                            // listSelect.style.position = 'absolute';
-                            // listSelect.style.left = `${max}px`;
-
-                            // const idInterval = setInterval(() => {
-                            //     if (count < max) {
-                            //         count += 50;
-                            //         listDefault.style.transform = `translate(-${count}px,0)`;
-                            //         listSelect.style.transform = `translate(-${count}px,0)`;
-                            //     } else {
-                            //         clearInterval(idInterval);
-                            //         listSelect.style.position = 'relative';
-                            //         listDefault.style.display = 'none';
-                            //         listDefault.style.transform = `translate(0,0)`;
-                            //     }
-                            // }, 100);
-                        };
-                        slidingLeft();
+                        sliding(listSelect);
                     } else {
-                        const slidingRight = () => {
-                            let count = 0;
-                            const max = 400;
-                            listDefault.style.display = 'block';
-                            // listDefault.parentNode.style.position = 'relative';
-                            // listDefault.style.position = 'absolute';
-                            // listDefault.style.left = `-${max}px`;
-                            listSelect.parentNode.classList.add('slide');
-                            listSelect.parentNode.classList.remove('slide-left');
-                            listSelect.parentNode.classList.add('slide-right');
-
-
-                            // const idInterval = setInterval(() => {
-                            //     if (count < max) {
-                            //         count += 50;
-                            //         listDefault.style.transform = `translate(${count}px,0)`;
-                            //         listSelect.style.transform = `translate(${count}px,0)`;
-                            //     } else {
-                            //         clearInterval(idInterval);
-                            //         // listDefault.style.position = 'relative';
-                            //         listSelect.style.display = 'none';
-                            //     }
-                            // }, 100);
-                        };
-                        slidingRight();
+                        sliding(listDefault);
+                        listSelect.style.display = 'none';
                     }
                 }
 
@@ -225,6 +184,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (!target.closest('#select-cities') && !target.closest('.dropdown')) {
+                    listSelect.parentNode.classList.add('slide-right');
+                    listSelect.parentNode.classList.remove('slide-left');
                     document.querySelectorAll('.dropdown-lists__list').forEach(item => item.style.display = 'none');
                 }
             });
