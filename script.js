@@ -1,6 +1,24 @@
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
+    const setCookie = (key, value, path, domain, secure) => {
+        let cookieStr = key + '=' + value;
+
+        const expires = new Date();
+        if (expires.getMonth() < 11) {
+            expires.setMonth(expires.getMonth() + 1);
+        } else {
+            expires.setFullYear(expires.getFullYear() + 1, 0);
+        }
+        cookieStr += '; expires=' + expires.toGMTString();
+
+        cookieStr += path ? '; path=' + path : '';
+        cookieStr += domain ? '; domain=' + domain : '';
+        cookieStr += secure ? '; secure=' + secure : '';
+
+        document.cookie = cookieStr;
+    };
+
     const preloder = (t = 0) => {
         const preloaderDiv = document.createElement('div');
         preloaderDiv.classList.add('preloader');
@@ -23,7 +41,20 @@ window.addEventListener('DOMContentLoaded', () => {
                     document.body.classList.add('loaded');
                     document.body.classList.remove('loaded_hiding');
                     preloaderDiv.parentNode.removeChild(preloaderDiv);
-                    const lang = prompt('Укажите вашу локацию - RU, EN, DE:', 'RU');
+                    if (document.cookie) {
+                        const results = document.cookie.match('(^|;) ?' + 'lang' + '=([^;]*)(;|$)');
+
+                        if (results) {
+                            const lang = results[2];
+                            console.log(lang);
+                        } else {
+                            const lang = prompt('Укажите вашу локацию - RU, EN, DE:', 'RU');
+                            setCookie('lang', lang);
+                        }
+                    } else {
+                        const lang = prompt('Укажите вашу локацию - RU, EN, DE:', 'RU');
+                        setCookie('lang', lang);
+                    }
                     startSite();
                 }
             }, 100);
