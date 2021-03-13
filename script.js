@@ -103,6 +103,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 const target = event.target;
 
                 if (target.matches('#select-cities')) {
+                    listSelect.parentNode.classList.add('slide-right');
+                    listSelect.parentNode.classList.remove('slide-left');
                     listSelect.style.display = 'none';
                     listAutocomplete.style.display = 'none';
                     colDefault.textContent = '';
@@ -140,8 +142,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
-
-
                 if (listSelect.style.display !== 'none' || listDefault.style.display !== 'none ' || listAutocomplete.style.display !== 'none ') {
                     if (target.closest('.dropdown-lists__line')) {
                         selectCities.value = '';
@@ -160,8 +160,10 @@ window.addEventListener('DOMContentLoaded', () => {
                         });
 
                         document.querySelectorAll('.dropdown-lists__list').forEach(item => item.style.display = 'none');
+
                     } else if (target.closest('.dropdown-lists__total-line')) {
                         button.href = '#';
+                        button.style.pointerEvents = 'none';
                         selectCities.value = '';
                         selectCities.value = target.closest('.dropdown-lists__total-line').firstChild.textContent;
                         closeButton.style.setProperty('display', 'block', 'important');
@@ -194,6 +196,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 const target = event.target;
 
                 button.href = '#';
+                // button.style.pointerEvents = 'none';
 
                 if (target.value !== '') {
                     listDefault.style.display = 'none';
